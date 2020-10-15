@@ -39,6 +39,14 @@ Note: Running `make` above should take approximately 20-30 minutes to generate w
 
 Note: You may put any files that you want to use within the Docker container in the root folder and they will be accessible.
 
+### Quick Example
+1. To test whether OpenPose installed correctly try:
+    ```bash
+    cd /workspace/openpose
+    ./build/examples/openpose/openpose.bin --video examples/media/video.avi --face
+    ```
+Note: this runs pretty slowly on my computer (Ryzen 2600 + NVIDIA GTX  1060 6GB), roughly 3fps.
+
 ### Closing the Docker container
 1. To exit the container, type ``exit`` on the first terminal that you spawned the container on or open a new terminal window (not inside the container) and type ``docker kill "container_name"`` where "container_name" is the container name on your system. (To find the container name type ``docker images``)
 
