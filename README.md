@@ -9,7 +9,7 @@ Dockerfile for using OpenPose
     ```bash
     docker image ls
     ```
-1. If the above fails (typically on linux), you may need to restart your docker daemon:
+1. If the above fails (typically on Ubuntu), you may need to restart your docker daemon:
     ```bash
     sudo service docker stop
     sudo service docker start
@@ -20,7 +20,14 @@ Dockerfile for using OpenPose
     ```bash
     sudo apt-get install nvidia-cuda-toolkit
     ```
-1. Install nvidia-docker by following the instructions at https://github.com/NVIDIA/nvidia-docker
+1. Install nvidia-docker by following the instructions at https://github.com/NVIDIA/nvidia-docker. This essentially boils down to:
+    ```bash
+    distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+    curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
+    curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+    sudo apt-get update
+    sudo apt-get install -y nvidia-container-toolkit
+    ```
 1. Navigate to the folder you cloned this repo into.
 1. From within this root directory:
     ```bash
